@@ -1,0 +1,1 @@
+This is currently a demo for a top down game with a unfinished uninteractable inventory ui, a character you can move around (but you're the center of the screen), and a collectable item that doesn't show up YET in the inventory. The controls are WASD/Arrow keys and tab to toggle inventory and r to reset
