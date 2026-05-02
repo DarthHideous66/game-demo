@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bxv1rdt0uya0q"]
+
+[ext_resource type="Texture2D" uid="uid://ci7h2u1yxmhcn" path="res://Screenshot 2025-08-25 201315.png" id="1_c24ra"]
+[ext_resource type="Script" uid="uid://bxv8yi1aqhyce" path="res://slot.gd" id="1_khion"]
+
+[node name="Slot" type="Panel" unique_id=69118819]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 45.0
+offset_bottom = 43.0
+script = ExtResource("1_khion")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907824576]
+position = Vector2(2, 2)
+scale = Vector2(0.20175438, 0.70967734)
+texture = ExtResource("1_c24ra")
+centered = false
+vframes = 2
