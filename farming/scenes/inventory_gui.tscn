@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dpu2qi0ex7n23"]
+
+[ext_resource type="Script" uid="uid://c63pfr5jhyxr2" path="res://scripts/inventory.gd" id="1_wrc4a"]
+[ext_resource type="Texture2D" uid="uid://boahxoig21qgt" path="res://pictures/inventory.png" id="2_ba86g"]
+[ext_resource type="PackedScene" uid="uid://bxv1rdt0uya0q" path="res://scenes/slot.tscn" id="3_kwcsr"]
+
+[node name="InventoryGui" type="Control" unique_id=1533691995]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wrc4a")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1808239296]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 86.0
+offset_right = 636.0
+offset_bottom = 201.0
+texture = ExtResource("2_ba86g")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=2068732502]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 29.0
+offset_right = 81.0
+offset_bottom = 110.0
+columns = 3
+
+[node name="Slot" parent="NinePatchRect/GridContainer" unique_id=69118819 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot2" parent="NinePatchRect/GridContainer" unique_id=1460196043 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot3" parent="NinePatchRect/GridContainer" unique_id=1628136527 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot4" parent="NinePatchRect/GridContainer" unique_id=795514959 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot5" parent="NinePatchRect/GridContainer" unique_id=878802540 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot6" parent="NinePatchRect/GridContainer" unique_id=1281774465 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot8" parent="NinePatchRect/GridContainer" unique_id=1401996350 instance=ExtResource("3_kwcsr")]
+layout_mode = 2
+
+[node name="Slot9" parent="NinePatchRect/GridContainer" unique_id=1862762274 instance=ExtResource("3_kwcsr")]
+layout_mode = 2

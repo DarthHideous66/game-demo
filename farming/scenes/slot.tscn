@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bxv1rdt0uya0q"]
+
+[ext_resource type="Script" uid="uid://bxv8yi1aqhyce" path="res://scripts/slot.gd" id="1_khion"]
+[ext_resource type="Texture2D" uid="uid://bulendme558nu" path="res://pictures/slot.png" id="2_vqyee"]
+[ext_resource type="Texture2D" uid="uid://ctcavkqciqsot" path="res://pictures/carrot-frame.png" id="3_vqyee"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khion"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqyee")
+}],
+"loop": true,
+"name": &"base",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vqyee")
+}],
+"loop": true,
+"name": &"carrot",
+"speed": 5.0
+}]
+
+[node name="Slot" type="Panel" unique_id=69118819]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 45.0
+offset_bottom = 43.0
+script = ExtResource("1_khion")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99049145]
+position = Vector2(13.999999, 16)
+scale = Vector2(0.38000003, 0.38000003)
+sprite_frames = SubResource("SpriteFrames_khion")
+animation = &"base"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dsfmr4r2cp2rs"]
+
+[ext_resource type="Script" uid="uid://dgw3eo0koyibu" path="res://scripts/carrot.gd" id="1_3dk6v"]
+[ext_resource type="Texture2D" uid="uid://b51dvpju55jy0" path="res://pictures/carrot.png" id="2_elckd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1r7"]
+size = Vector2(45, 25)
+
+[node name="collectable" type="Area2D" unique_id=1578251185]
+script = ExtResource("1_3dk6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=398919742]
+position = Vector2(-0.4999981, 0.5000019)
+scale = Vector2(0.97, 0.78999996)
+texture = ExtResource("2_elckd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1970118086]
+visible = false
+position = Vector2(-6.5, 0.5)
+shape = SubResource("RectangleShape2D_mb1r7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
