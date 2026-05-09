@@ -22,6 +22,9 @@ func _ready():
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot5"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot6"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot8"),
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot9")]
 
+func player_identifier():
+	pass
+
 func _process(delta: float) -> void:
 	if velocity.x == 0 and velocity.y == 0:
 		current_animation = "idle"
