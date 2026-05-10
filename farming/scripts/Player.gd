@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var right_anim = $attack_right_sprite
 @onready var left_anim = $attack_left_sprite
+@onready var equipped_anim = $equipped
 @onready var hearts = [$heart, $heart2, $heart3]
 
 const SPEED = 300.0
@@ -21,6 +22,7 @@ func _ready():
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot3"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot4"),
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot5"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot6"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot8"),
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot9")]
+	equipped_anim.play("default")
 
 func player_identifier():
 	pass

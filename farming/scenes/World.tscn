@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bb44clclmtkrk" path="res://pictures/left_attack.png" id="10_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://dpu2qi0ex7n23" path="res://scenes/inventory_gui.tscn" id="10_dgldv"]
 [ext_resource type="PackedScene" uid="uid://dsfmr4r2cp2rs" path="res://scenes/carrot.tscn" id="11_rm3lh"]
+[ext_resource type="Texture2D" uid="uid://w7wggsk7wjtp" path="res://pictures/shovel.png" id="11_rpuxp"]
+[ext_resource type="PackedScene" uid="uid://c7pisrxix04oa" path="res://shovel.tscn" id="12_nthub"]
 [ext_resource type="PackedScene" uid="uid://dsjouh4fit1qw" path="res://scenes/enemy.tscn" id="13_jgbtq"]
 [ext_resource type="Texture2D" uid="uid://buoxk4x8n4s1m" path="res://pictures/tilemap_pics/tilemap (2).png" id="15_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://5jrb45ojotv8" path="res://scenes/dirt.tscn" id="16_o1tcx"]
@@ -776,6 +778,25 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_nthub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rpuxp")
+}],
+"loop": true,
+"name": &"shovel",
+"speed": 0.0
+}]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1tcx"]
 texture = ExtResource("15_c0d7e")
 texture_region_size = Vector2i(50, 50)
@@ -852,6 +873,12 @@ position = Vector2(-27, 7)
 sprite_frames = SubResource("SpriteFrames_jgbtq")
 animation = &"attack"
 frame_progress = 0.40779757
+
+[node name="equipped" type="AnimatedSprite2D" parent="Player" unique_id=897197120]
+position = Vector2(28.999878, -2.5)
+scale = Vector2(0.35999972, 0.44999984)
+sprite_frames = SubResource("SpriteFrames_nthub")
+animation = &"shovel"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1966336339]
 process_mode = 3
@@ -979,6 +1006,9 @@ position = Vector2(200, -150)
 
 [node name="Area2D34" parent="dirt" unique_id=1402242811 instance=ExtResource("16_o1tcx")]
 position = Vector2(250, -150)
+
+[node name="shovel" parent="." unique_id=1018392931 instance=ExtResource("12_nthub")]
+position = Vector2(355, 103)
 
 [connection signal="body_entered" from="Player/damage" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Player/right_attack" to="Player" method="_on_right_attack_body_entered"]

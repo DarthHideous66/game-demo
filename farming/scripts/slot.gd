@@ -32,6 +32,8 @@ func fill(type):
 	filled = [true, type]
 	if type == "carrot":
 		anim.play("carrot")
+	elif type == "shovel":
+		anim.play("shovel")
 	
 
 
