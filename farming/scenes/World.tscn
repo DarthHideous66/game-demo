@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dnrbdk1dwsn8y" path="res://pictures/right_atttack.png" id="9_i4b1j"]
 [ext_resource type="Texture2D" uid="uid://bb44clclmtkrk" path="res://pictures/left_attack.png" id="10_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://dpu2qi0ex7n23" path="res://scenes/inventory_gui.tscn" id="10_dgldv"]
+[ext_resource type="Texture2D" uid="uid://b51dvpju55jy0" path="res://pictures/carrot.png" id="11_44lqw"]
 [ext_resource type="PackedScene" uid="uid://dsfmr4r2cp2rs" path="res://scenes/carrot.tscn" id="11_rm3lh"]
 [ext_resource type="Texture2D" uid="uid://w7wggsk7wjtp" path="res://pictures/shovel.png" id="11_rpuxp"]
 [ext_resource type="PackedScene" uid="uid://c7pisrxix04oa" path="res://shovel.tscn" id="12_nthub"]
@@ -782,6 +783,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("11_44lqw")
+}],
+"loop": true,
+"name": &"carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": null
 }],
 "loop": true,
@@ -875,10 +884,10 @@ animation = &"attack"
 frame_progress = 0.40779757
 
 [node name="equipped" type="AnimatedSprite2D" parent="Player" unique_id=897197120]
-position = Vector2(28.999878, -2.5)
-scale = Vector2(0.35999972, 0.44999984)
+position = Vector2(30.765625, 3.5)
+scale = Vector2(-0.26272634, 0.44999984)
 sprite_frames = SubResource("SpriteFrames_nthub")
-animation = &"shovel"
+animation = &"carrot"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1966336339]
 process_mode = 3

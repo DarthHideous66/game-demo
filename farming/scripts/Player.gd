@@ -16,6 +16,7 @@ var thing = ""
 var direction = ""
 var play_right_attack: bool = false
 var play_left_attack: bool = false
+var equipped_item = "default"
 
 func _ready():
 	current_animation = "idle"
@@ -29,6 +30,8 @@ func player_identifier():
 	pass
 
 func _process(delta: float) -> void:
+
+	equipped_item = "default"
 	if velocity.x == 0 and velocity.y == 0:
 		current_animation = "idle"
 	anim.play(current_animation)
@@ -46,19 +49,20 @@ func _process(delta: float) -> void:
 			left_anim.play("attack")
 	elif play_left_attack == false:
 		left_anim.pause()
-	
-			
-	if Input.is_action_just_pressed("use"):
-		for i in slots:
-			if i.return_equipped() and i.state()[1] == "carrot":
-				for x in hearts:
-					if x.state() == false:
-						x.heal()
-						i.use()
-						break
+		
+	for i in slots:
+		if i.return_equipped() and i.state()[1] == "carrot":
+			equipped_item = "carrot"
+			if Input.is_action_just_pressed("use"):
+					for x in hearts:
+						if x.state() == false:
+							x.heal()
+							i.use()
+							break
 	for i in slots:
 		if i.return_equipped() and i.state()[1] == "shovel":
-			equipped_anim.play("shovel")
+			equipped_item = "shovel"
+			
 	if inside_right:
 		if Input.is_action_just_pressed("attack"):
 			if direction == "right":
@@ -68,6 +72,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("attack"):
 			if direction == "left":
 				thing.die()
+				
+
+	equipped_anim.play(equipped_item)
 	
 func death():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
