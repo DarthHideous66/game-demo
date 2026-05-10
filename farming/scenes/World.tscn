@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b51dvpju55jy0" path="res://pictures/carrot.png" id="11_44lqw"]
 [ext_resource type="PackedScene" uid="uid://dsfmr4r2cp2rs" path="res://scenes/carrot.tscn" id="11_rm3lh"]
 [ext_resource type="Texture2D" uid="uid://w7wggsk7wjtp" path="res://pictures/shovel.png" id="11_rpuxp"]
-[ext_resource type="PackedScene" uid="uid://c7pisrxix04oa" path="res://shovel.tscn" id="12_nthub"]
+[ext_resource type="PackedScene" uid="uid://c7pisrxix04oa" path="res://scenes/shovel.tscn" id="12_nthub"]
 [ext_resource type="PackedScene" uid="uid://dsjouh4fit1qw" path="res://scenes/enemy.tscn" id="13_jgbtq"]
 [ext_resource type="Texture2D" uid="uid://buoxk4x8n4s1m" path="res://pictures/tilemap_pics/tilemap (2).png" id="15_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://5jrb45ojotv8" path="res://scenes/dirt.tscn" id="16_o1tcx"]
@@ -859,7 +859,6 @@ offset_right = 240.0
 offset_bottom = -256.0
 
 [node name="right_attack" type="Area2D" parent="Player" unique_id=1280240164]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/right_attack" unique_id=1248682450]
 position = Vector2(37.5, 10)
@@ -887,7 +886,7 @@ frame_progress = 0.40779757
 position = Vector2(30.765625, 3.5)
 scale = Vector2(-0.26272634, 0.44999984)
 sprite_frames = SubResource("SpriteFrames_nthub")
-animation = &"carrot"
+animation = &"shovel"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1966336339]
 process_mode = 3

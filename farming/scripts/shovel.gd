@@ -1,7 +1,6 @@
 extends Area2D
 var slots = []
 
-
 func _ready():
 	slots = [get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot2"),
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot3"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot4"),
@@ -9,12 +8,10 @@ func _ready():
  get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot9")]
 
 
-
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		for i in slots:
 			if not i.state()[0]:
-				i.fill("carrot")
+				i.fill("shovel")
 				queue_free()
 				break
-		
