@@ -11,6 +11,7 @@ func _ready() -> void:
 	is_inside = false
 	anim.play("default")
 	dug = false
+	add_to_group("dirt")
 
 
 func _process(delta: float) -> void:

@@ -29,6 +29,8 @@ func _ready():
 func player_identifier():
 	pass
 
+
+
 func _process(delta: float) -> void:
 
 	equipped_item = "default"

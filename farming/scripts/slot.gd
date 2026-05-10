@@ -1,5 +1,6 @@
 extends Panel
 @onready var anim = $AnimatedSprite2D
+@onready var player = get_node("/root/World/Player")
 var filled = [false, "None"]
 var equipped: bool = false
 var used: bool = false
@@ -10,6 +11,9 @@ func _process(delta: float) -> void:
 		used = false
 	if filled[0] == false:
 		anim.play("base")
+	if player.equipped() != null:
+		if player.equipped() != filled[1]:
+			equipped = false
 
 func _ready() -> void:
 	pass
