@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var equipped_anim = $equipped
 @onready var hearts = [$heart, $heart2, $heart3]
 
+
 const SPEED = 300.0
 var current_animation = ""
 var slots = []
@@ -55,6 +56,9 @@ func _process(delta: float) -> void:
 						x.heal()
 						i.use()
 						break
+	for i in slots:
+		if i.return_equipped() and i.state()[1] == "shovel":
+			equipped_anim.play("shovel")
 	if inside_right:
 		if Input.is_action_just_pressed("attack"):
 			if direction == "right":

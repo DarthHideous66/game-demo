@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func use():
 	used = true
+	equipped = false
 
 func state():
 	return filled
@@ -23,7 +24,8 @@ func state():
 
 func equip():
 	equipped = true
-	
+
+
 func return_equipped():
 	return equipped
 	
