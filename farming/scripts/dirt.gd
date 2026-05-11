@@ -5,6 +5,7 @@ extends Area2D
 @onready var plant_anim = $plants
 @onready var plant_timer = $planted
 @onready var carrot = get_node("/root/World/carrot")
+var slots = ""
 var health = 0
 var dug = false
 var bodyy = null
@@ -15,6 +16,10 @@ var start_plant_timer: bool = false
 const CARROT = preload("res://scenes/carrot.tscn")
 
 func _ready() -> void:
+	slots = [get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot2"),
+ get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot3"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot4"),
+ get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot5"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot6"), get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot8"),
+ get_node("/root/World/CanvasLayer/InventoryGui/NinePatchRect/GridContainer/Slot9")]
 	start_plant_timer = false
 	has_plant = false
 	health = 3
@@ -45,6 +50,9 @@ func _process(delta: float) -> void:
 					plant_anim.play("has_plant")
 					has_plant = true
 					start_plant_timer = true
+					for i in slots:
+						if i.return_equipped() and i.state()[1] == "carrot":
+							i.use()
 	if start_plant_timer:
 		plant_timer.start(1)
 		
@@ -60,8 +68,9 @@ func _on_body_entered(body: Node2D) -> void:
 		is_inside = true
 		bodyy = body
 	elif body.has_method("enemy_identifier"):
-		timer.start(5)
-		take_damage = true
+		if dug:
+			timer.start(5)
+			take_damage = true
 
 func spawn_veggie(veggie):
 	var carrot = veggie.instantiate()

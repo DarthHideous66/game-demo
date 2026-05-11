@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var target_player = get_node("/root/World/Player/")
+@onready var target_player = get_node("/root/World/Player")
 var speed = 100
 var follow: bool = false
 var dirts = []
@@ -30,12 +30,12 @@ func find_target():
 	var closest_distance = INF
 	
 	for dirt in get_tree().get_nodes_in_group("dirt"):
-		if dirt.dug:
-			var distance = global_position.distance_to(dirt.global_position)
-			
-			if distance < closest_distance:
-				closest_distance = distance
-				closest = dirt
+		
+		var distance = global_position.distance_to(dirt.global_position)
+		
+		if distance < closest_distance:
+			closest_distance = distance
+			closest = dirt
 	target = closest
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -56,4 +56,5 @@ func die():
 	var carrot = CARROT.instantiate()
 	carrot.global_position = global_position
 	get_tree().current_scene.add_child(carrot)
+	get_node("/root/World/WaveManager").enemy_died()
 	queue_free()

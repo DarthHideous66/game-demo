@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dsfmr4r2cp2rs" path="res://scenes/carrot.tscn" id="11_rm3lh"]
 [ext_resource type="Texture2D" uid="uid://w7wggsk7wjtp" path="res://pictures/shovel.png" id="11_rpuxp"]
 [ext_resource type="PackedScene" uid="uid://c7pisrxix04oa" path="res://scenes/shovel.tscn" id="12_nthub"]
-[ext_resource type="PackedScene" uid="uid://dsjouh4fit1qw" path="res://scenes/enemy.tscn" id="13_jgbtq"]
 [ext_resource type="Texture2D" uid="uid://buoxk4x8n4s1m" path="res://pictures/tilemap_pics/tilemap (2).png" id="15_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://5jrb45ojotv8" path="res://scenes/dirt.tscn" id="16_o1tcx"]
+[ext_resource type="Script" uid="uid://bkkrnnfd2re0v" path="res://scenes/wave_manager.gd" id="20_dwmkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(45, 87)
@@ -902,9 +902,6 @@ offset_bottom = -21.0
 [node name="collectable" parent="." unique_id=1578251185 instance=ExtResource("11_rm3lh")]
 position = Vector2(475, 298)
 
-[node name="enemy" parent="." unique_id=986960032 instance=ExtResource("13_jgbtq")]
-position = Vector2(985, 368)
-
 [node name="TileMap" type="TileMap" parent="." unique_id=352806565]
 show_behind_parent = true
 tile_set = SubResource("TileSet_rpuxp")
@@ -1019,6 +1016,13 @@ position = Vector2(250, -150)
 [node name="shovel" parent="." unique_id=1018392931 instance=ExtResource("12_nthub")]
 position = Vector2(355, 103)
 
+[node name="WaveManager" type="Node2D" parent="." unique_id=1502108899]
+script = ExtResource("20_dwmkc")
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager" unique_id=1009250671]
+
+[node name="WaveTimer" type="Timer" parent="WaveManager" unique_id=953422729]
+
 [connection signal="body_entered" from="Player/damage" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Player/right_attack" to="Player" method="_on_right_attack_body_entered"]
 [connection signal="body_exited" from="Player/right_attack" to="Player" method="_on_right_attack_body_exited"]
@@ -1026,3 +1030,5 @@ position = Vector2(355, 103)
 [connection signal="body_exited" from="Player/left_attack" to="Player" method="_on_left_attack_body_exited"]
 [connection signal="animation_looped" from="Player/attack_right_sprite" to="Player" method="_on_attack_right_sprite_animation_looped"]
 [connection signal="animation_looped" from="Player/attack_left_sprite" to="Player" method="_on_attack_left_sprite_animation_looped"]
+[connection signal="timeout" from="WaveManager/SpawnTimer" to="WaveManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WaveManager/WaveTimer" to="WaveManager" method="_on_wave_timer_timeout"]

@@ -3,7 +3,7 @@ extends Node2D
 @onready var enemy = get_node("enemy")
 
 func _ready():
-	enemy.spawn(100, 100)
+	pass
 	
 
 
