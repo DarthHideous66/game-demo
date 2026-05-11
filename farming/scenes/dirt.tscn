@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5jrb45ojotv8"]
 
-[ext_resource type="Script" uid="uid://cptlosvwnniid" path="res://scenes/dirt.gd" id="1_5kli6"]
+[ext_resource type="Script" uid="uid://cptlosvwnniid" path="res://scripts/dirt.gd" id="1_5kli6"]
 [ext_resource type="Texture2D" uid="uid://ved2it332cie" path="res://pictures/tilemap_pics/dirt.png" id="1_wy34w"]
 [ext_resource type="Texture2D" uid="uid://k3sge6r7s47d" path="res://pictures/plantable_dirt.png" id="2_wy34w"]
 [ext_resource type="Texture2D" uid="uid://b3o7gddykg2vt" path="res://pictures/seeds.png" id="4_mt4ut"]
@@ -68,6 +68,9 @@ scale = Vector2(0.42000005, 0.4)
 sprite_frames = SubResource("SpriteFrames_n7a8s")
 animation = &"has_plant"
 
+[node name="planted" type="Timer" parent="." unique_id=826354109]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="planted" to="." method="_on_planted_timeout"]
