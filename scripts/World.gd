@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 	
 	if get_tree().get_nodes_in_group("dirt").is_empty():
+		print("game over")
 		get_tree().change_scene_to_file("res://game_over_2.tscn")
 
 

@@ -49,3 +49,5 @@ func _on_gui_input(event: InputEvent) -> void:
 			equipped = false
 		else:
 			equip()
+			if player.equipped() != filled[1]:
+				player.change_equipped(filled[1])

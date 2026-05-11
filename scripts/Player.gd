@@ -132,6 +132,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					x.die()
 					break
 
+func change_equipped(item):
+	equipped_item = item
 
 func _on_right_attack_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
