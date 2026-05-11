@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://4j0vrmby71k8"]
+
+[ext_resource type="Texture2D" uid="uid://mx01q0cw770g" path="res://pictures/heart.png" id="1_7p8dj"]
+[ext_resource type="Script" uid="uid://oc0yq0ic84aw" path="res://scripts/heart.gd" id="1_krgnv"]
+[ext_resource type="Texture2D" uid="uid://6vuw2446xchc" path="res://pictures/lost_heart.png" id="2_pembh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjxl8"]
+atlas = ExtResource("1_7p8dj")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7j81i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjxl8")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pembh")
+}],
+"loop": true,
+"name": &"lost",
+"speed": 5.0
+}]
+
+[node name="heart" type="Panel" unique_id=1710579834]
+script = ExtResource("1_krgnv")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1663015030]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_7j81i")
+animation = &"full"

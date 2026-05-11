@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b5qugc05sv3os"]
+
+[ext_resource type="Script" uid="uid://b51t8hmvds08m" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://c1skirheveydb" path="res://pictures/black.png" id="1_xeevv"]
+
+[node name="game_over" type="CanvasLayer" unique_id=432384570]
+script = ExtResource("1_wqhvx")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=1509056155]
+position = Vector2(521, 458.0005)
+scale = Vector2(3667.3037, 3725.0437)
+texture = ExtResource("1_xeevv")
+
+[node name="Label" type="Label" parent="." unique_id=317110851]
+modulate = Color(1, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 0.006
+offset_right = 975.088
+offset_bottom = 561.0
+text = "                                                                                                         
+
+
+
+                                                                                                                   GAME OVER
+
+
+
+
+
+
+
+
+
+                                                                                                            PRESS R TO RESET
+"
