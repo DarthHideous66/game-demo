@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cptlosvwnniid" path="res://scenes/dirt.gd" id="1_5kli6"]
 [ext_resource type="Texture2D" uid="uid://ved2it332cie" path="res://pictures/tilemap_pics/dirt.png" id="1_wy34w"]
 [ext_resource type="Texture2D" uid="uid://k3sge6r7s47d" path="res://pictures/plantable_dirt.png" id="2_wy34w"]
+[ext_resource type="Texture2D" uid="uid://b3o7gddykg2vt" path="res://pictures/seeds.png" id="4_mt4ut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8k87"]
 size = Vector2(50, 50)
@@ -26,6 +27,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7a8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mt4ut")
+}],
+"loop": true,
+"name": &"has_plant",
+"speed": 5.0
+}]
+
 [node name="Area2D" type="Area2D" unique_id=662261136]
 show_behind_parent = true
 script = ExtResource("1_5kli6")
@@ -37,6 +57,17 @@ shape = SubResource("RectangleShape2D_x8k87")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2138115689]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_te7ho")
+animation = &"plantable"
+
+[node name="Timer" type="Timer" parent="." unique_id=544115353]
+wait_time = 5.0
+
+[node name="plants" type="AnimatedSprite2D" parent="." unique_id=1137682348]
+position = Vector2(-1.0000006, -1.0000005)
+scale = Vector2(0.42000005, 0.4)
+sprite_frames = SubResource("SpriteFrames_n7a8s")
+animation = &"has_plant"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

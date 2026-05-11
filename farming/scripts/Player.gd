@@ -33,6 +33,7 @@ func player_identifier():
 
 func _process(delta: float) -> void:
 
+
 	equipped_item = "default"
 	if velocity.x == 0 and velocity.y == 0:
 		current_animation = "idle"

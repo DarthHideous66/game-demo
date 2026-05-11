@@ -6,18 +6,25 @@ var follow: bool = false
 var dirts = []
 const CARROT = preload("res://scenes/carrot.tscn")
 const ENEMY = preload("res://scenes/enemy.tscn")
+var target = null
 
 func _process(delta: float) -> void:
+	find_target()
+
+func enemy_identifier():
 	pass
-
-
 
 func _physics_process(delta: float) -> void:
 	if follow:
 		var direction = (target_player.global_position - global_position).normalized()
 		velocity = direction * speed
 		move_and_slide()
-
+		
+	elif target != null:
+		var direction = (target.global_position - global_position).normalized()
+		velocity = direction * speed
+		move_and_slide()
+		
 func find_target():
 	var closest = null
 	var closest_distance = INF
@@ -29,6 +36,7 @@ func find_target():
 			if distance < closest_distance:
 				closest_distance = distance
 				closest = dirt
+	target = closest
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == target_player:
