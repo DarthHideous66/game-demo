@@ -900,6 +900,18 @@ offset_top = -240.0
 offset_right = -299.0
 offset_bottom = -159.0
 
+[node name="survived" type="Label" parent="Player" unique_id=1021634367]
+offset_left = -137.0
+offset_top = 77.0
+offset_right = 206.0
+offset_bottom = 252.0
+
+[node name="dirts" type="Label" parent="Player" unique_id=1809731972]
+offset_left = 56.0
+offset_top = -192.0
+offset_right = 279.0
+offset_bottom = -86.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1966336339]
 process_mode = 3
 script = ExtResource("9_30fn3")
