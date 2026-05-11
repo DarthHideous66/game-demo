@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://de022iah2d5vm"]
+
+[ext_resource type="Script" uid="uid://vhe1tae5mt5t" path="res://scripts/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://c1skirheveydb" path="res://pictures/black.png" id="2_fu7sn"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1302139275]
+script = ExtResource("1_7vrkn")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=983813582]
+position = Vector2(296.99982, 441.50012)
+scale = Vector2(50.33708, 26.75)
+texture = ExtResource("2_fu7sn")
+
+[node name="Button" type="Button" parent="." unique_id=1656009418]
+offset_left = 271.0
+offset_top = 392.0
+offset_right = 406.0
+offset_bottom = 470.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="." unique_id=785204352]
+offset_left = 693.0
+offset_top = 381.0
+offset_right = 850.0
+offset_bottom = 471.0
+text = "Quit
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

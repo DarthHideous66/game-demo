@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cbl2m6vyi6h16"]
+
+[ext_resource type="Script" uid="uid://brp2q0hddao4r" path="res://scripts/game_over_2.gd" id="1_f2k6h"]
+[ext_resource type="Texture2D" uid="uid://c1skirheveydb" path="res://pictures/black.png" id="1_k8owm"]
+
+[node name="game_over2" type="CanvasLayer" unique_id=645426671]
+script = ExtResource("1_f2k6h")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=813809015]
+position = Vector2(666.5, 290.99997)
+scale = Vector2(32.528088, 11.956522)
+texture = ExtResource("1_k8owm")
+
+[node name="Label" type="Label" parent="." unique_id=468191305]
+offset_right = 1151.0
+offset_bottom = 642.0
+text = "                                                                                                                            
+
+
+
+
+                                                                                                                                 GAME OVER
+
+
+
+
+
+
+
+                                                                                            YOU FAILED TO PROTECT THE SACRED DIRT OF VEGGIES
+
+
+
+
+
+
+                                                                                                                          Press R to try again"
